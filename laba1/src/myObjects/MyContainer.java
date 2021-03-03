@@ -14,6 +14,29 @@ public class MyContainer {
     }
 
     /**
+     * Получение элемента контейнера по индексу.
+     * @param index индекс
+     * @return возвращает элемент с указанным индексом
+     */
+    public int get(int index) {
+        return numbers[index];
+    }
+
+    /**
+     * Определяет, содержит ли контейнер указанный элемент.
+     * @param element элемент
+     * @return true/false в зависимости от наличия элемента в контейнере
+     */
+    public boolean includes(int element) {
+        for (int num: numbers) {
+            if (num == element) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Добавление указанного элемента в конец контейнера.
      * @param element элемент
      */
