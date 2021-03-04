@@ -56,7 +56,7 @@ public class MyContainer {
      * @param element элемент
      */
     public void add(int element) {
-        if (numbers.length - 1 >= lastIndex) {
+        if (numbers.length - 1 == lastIndex) {
             resize(numbers.length + initSize);
         }
         numbers[lastIndex++] = element;
@@ -75,6 +75,7 @@ public class MyContainer {
                 System.arraycopy(numbers, 0, newNumbers, 0, i);
                 System.arraycopy(numbers, i + 1, newNumbers, i, numbers.length - 1 - i);
                 numbers = newNumbers;
+                lastIndex--;
                 return;
             }
         }
@@ -86,7 +87,7 @@ public class MyContainer {
      */
     private void resize(int newSize) {
         int[] newNumbers = new int[newSize];
-        System.arraycopy(numbers, 0, newNumbers, 0, newSize);
+        System.arraycopy(numbers, 0, newNumbers, 0, numbers.length);
         numbers = newNumbers;
     }
 }
