@@ -37,6 +37,21 @@ public class MyContainer {
     }
 
     /**
+     * Возвращает индекс первого вхождения элемента в контейнер.
+     * Если объект не найден, то возвращается -1.
+     * @param element элемент
+     * @return индекс
+     */
+    public int indexOf(int element) {
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == element) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
      * Добавление указанного элемента в конец контейнера.
      * @param element элемент
      */
@@ -45,6 +60,24 @@ public class MyContainer {
             resize(numbers.length + initSize);
         }
         numbers[lastIndex++] = element;
+    }
+
+    /**
+     * Удаляет указанный элемент из контейнера.
+     * @param element элемент
+     */
+    public void remove(int element) {
+        for (int i = 0; i < numbers.length; i++)
+        {
+            if (numbers[i] == element)
+            {
+                int[] newNumbers = new int[numbers.length - 1];
+                System.arraycopy(numbers, 0, newNumbers, 0, i);
+                System.arraycopy(numbers, i + 1, newNumbers, i, numbers.length - 1 - i);
+                numbers = newNumbers;
+                return;
+            }
+        }
     }
 
     /**
