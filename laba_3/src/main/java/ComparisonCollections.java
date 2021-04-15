@@ -45,6 +45,17 @@ public class ComparisonCollections {
     }
 
     /**
+     * Реализует метод get() для указанной коллекции.
+     * @param collection коллекция
+     * @param position позиция, из котороый будут извлекаться значения
+     */
+    private void getElementFromCollection(List collection, int position) {
+        for (int i = 0; i < numberOfCalls; i++) {
+            collection.get(position);
+        }
+    }
+
+    /**
      * Сравнение производительности метода add() ArrayList и LinkedList.
      */
     public void compareAddMethod() {
@@ -90,26 +101,45 @@ public class ComparisonCollections {
 
     /**
      * Сравнение производительности метода get() ArrayList и LinkedList.
+     * Получение элемента из конца.
      */
-    public void compareGetMethod() {
+    public void compareGetEndMethod() {
         List<Integer> arrayList = new ArrayList<>();
         fillCollection(arrayList);
         List<Integer> linkedList = new LinkedList<>();
         fillCollection(linkedList);
 
         startTimeUpdate();
-        for (int i = 0; i < numberOfCalls; i++) {
-            arrayList.get(arrayList.size() - 1);
-        }
+        getElementFromCollection(arrayList,arrayList.size() - 1);
         long endTime = System.currentTimeMillis();
         long resultAl = endTime - startTime;
 
         startTimeUpdate();
-        for (int i = 0; i < numberOfCalls; i++) {
-            linkedList.get(linkedList.size() - 1);
-        }
+        getElementFromCollection(linkedList,linkedList.size() - 1);
         endTime = System.currentTimeMillis();
 
-        showResult(resultAl, endTime - startTime, "get()");
+        showResult(resultAl, endTime - startTime, "get() из конца");
+    }
+
+    /**
+     * Сравнение производительности метода get() ArrayList и LinkedList.
+     * Получение элемента из середины.
+     */
+    public void compareGetMidMethod() {
+        List<Integer> arrayList = new ArrayList<>();
+        fillCollection(arrayList);
+        List<Integer> linkedList = new LinkedList<>();
+        fillCollection(linkedList);
+
+        startTimeUpdate();
+        getElementFromCollection(arrayList,arrayList.size() / 2);
+        long endTime = System.currentTimeMillis();
+        long resultAl = endTime - startTime;
+
+        startTimeUpdate();
+        getElementFromCollection(linkedList,linkedList.size() / 2);
+        endTime = System.currentTimeMillis();
+
+        showResult(resultAl, endTime - startTime, "get() из середины");
     }
 }
