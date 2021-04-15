@@ -3,5 +3,6 @@ public class Main {
         ComparisonCollections comparison = new ComparisonCollections();
         comparison.compareAddMethod();
         comparison.compareDeleteMethod();
+        comparison.compareGetMethod();
     }
 }

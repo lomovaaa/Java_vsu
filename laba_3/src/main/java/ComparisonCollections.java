@@ -87,4 +87,29 @@ public class ComparisonCollections {
 
         showResult(resultAl, endTime - startTime, "delete()");
     }
+
+    /**
+     * Сравнение производительности метода get() ArrayList и LinkedList.
+     */
+    public void compareGetMethod() {
+        List<Integer> arrayList = new ArrayList<>();
+        fillCollection(arrayList);
+        List<Integer> linkedList = new LinkedList<>();
+        fillCollection(linkedList);
+
+        startTimeUpdate();
+        for (int i = 0; i < numberOfCalls; i++) {
+            arrayList.get(arrayList.size() - 1);
+        }
+        long endTime = System.currentTimeMillis();
+        long resultAl = endTime - startTime;
+
+        startTimeUpdate();
+        for (int i = 0; i < numberOfCalls; i++) {
+            linkedList.get(linkedList.size() - 1);
+        }
+        endTime = System.currentTimeMillis();
+
+        showResult(resultAl, endTime - startTime, "get()");
+    }
 }
