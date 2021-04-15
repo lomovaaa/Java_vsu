@@ -35,6 +35,16 @@ public class ComparisonCollections {
     }
 
     /**
+     * Заполняет указанную коллекцию значениями.
+     * @param collection коллекция
+     */
+    private void fillCollection(List collection) {
+        for (int i = 0; i < numberOfCalls; i++) {
+            collection.add(0, i);
+        }
+    }
+
+    /**
      * Сравнение производительности метода add() ArrayList и LinkedList.
      */
     public void compareAddMethod() {
@@ -42,18 +52,39 @@ public class ComparisonCollections {
         List<Integer> linkedList = new LinkedList<>();
 
         startTimeUpdate();
+        fillCollection(arrayList);
+        long endTime = System.currentTimeMillis();
+        long resultAl = endTime - startTime;
+
+        startTimeUpdate();
+        fillCollection(linkedList);
+        endTime = System.currentTimeMillis();
+
+        showResult(resultAl, endTime - startTime, "add()");
+    }
+
+    /**
+     * Сравнение производительности метода delete() ArrayList и LinkedList.
+     */
+    public void compareDeleteMethod() {
+        List<Integer> arrayList = new ArrayList<>();
+        fillCollection(arrayList);
+        List<Integer> linkedList = new LinkedList<>();
+        fillCollection(linkedList);
+
+        startTimeUpdate();
         for (int i = 0; i < numberOfCalls; i++) {
-            arrayList.add(0, i);
+            arrayList.remove(0);
         }
         long endTime = System.currentTimeMillis();
         long resultAl = endTime - startTime;
 
         startTimeUpdate();
         for (int i = 0; i < numberOfCalls; i++) {
-            linkedList.add(0, i);
+            linkedList.remove(0);
         }
         endTime = System.currentTimeMillis();
 
-        showResult(resultAl, endTime - startTime, "add()");
+        showResult(resultAl, endTime - startTime, "delete()");
     }
 }
