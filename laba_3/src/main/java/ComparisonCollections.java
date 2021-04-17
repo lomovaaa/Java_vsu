@@ -59,8 +59,8 @@ public class ComparisonCollections {
      * Сравнение производительности метода add() ArrayList и LinkedList.
      */
     public void compareAddMethod() {
-        List<Integer> arrayList = new ArrayList<>();
-        List<Integer> linkedList = new LinkedList<>();
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        LinkedList<Integer> linkedList = new LinkedList<>();
 
         startTimeUpdate();
         fillCollection(arrayList);
@@ -76,11 +76,12 @@ public class ComparisonCollections {
 
     /**
      * Сравнение производительности метода delete() ArrayList и LinkedList.
+     * Удаление элемента из начала коллекции.
      */
-    public void compareDeleteMethod() {
-        List<Integer> arrayList = new ArrayList<>();
+    public void compareDeleteBeginMethod() {
+        ArrayList<Integer> arrayList = new ArrayList<>();
         fillCollection(arrayList);
-        List<Integer> linkedList = new LinkedList<>();
+        LinkedList<Integer> linkedList = new LinkedList<>();
         fillCollection(linkedList);
 
         startTimeUpdate();
@@ -96,7 +97,7 @@ public class ComparisonCollections {
         }
         endTime = System.currentTimeMillis();
 
-        showResult(resultAl, endTime - startTime, "delete()");
+        showResult(resultAl, endTime - startTime, "delete() из начала");
     }
 
     /**
@@ -104,9 +105,9 @@ public class ComparisonCollections {
      * Получение элемента из конца.
      */
     public void compareGetEndMethod() {
-        List<Integer> arrayList = new ArrayList<>();
+        ArrayList<Integer> arrayList = new ArrayList<>();
         fillCollection(arrayList);
-        List<Integer> linkedList = new LinkedList<>();
+        LinkedList<Integer> linkedList = new LinkedList<>();
         fillCollection(linkedList);
 
         startTimeUpdate();
@@ -126,9 +127,9 @@ public class ComparisonCollections {
      * Получение элемента из середины.
      */
     public void compareGetMidMethod() {
-        List<Integer> arrayList = new ArrayList<>();
+        ArrayList<Integer> arrayList = new ArrayList<>();
         fillCollection(arrayList);
-        List<Integer> linkedList = new LinkedList<>();
+        LinkedList<Integer> linkedList = new LinkedList<>();
         fillCollection(linkedList);
 
         startTimeUpdate();
