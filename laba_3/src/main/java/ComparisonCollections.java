@@ -143,4 +143,48 @@ public class ComparisonCollections {
 
         showResult(resultAl, endTime - startTime, "get() из середины");
     }
+
+    /**
+     * Сравнение производительности метода replaceAll() ArrayList и LinkedList.
+     * Получение элемента из середины.
+     */
+    public void compareReplaceAllMethod() {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        fillCollection(arrayList);
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        fillCollection(linkedList);
+
+        startTimeUpdate();
+        arrayList.replaceAll(element -> - element);
+        long endTime = System.currentTimeMillis();
+        long resultAl = endTime - startTime;
+
+        startTimeUpdate();
+        linkedList.replaceAll(element -> - element);
+        endTime = System.currentTimeMillis();
+
+        showResult(resultAl, endTime - startTime, "replaceAll()");
+    }
+
+    /**
+     * Сравнение производительности метода size() ArrayList и LinkedList.
+     * Получение элемента из середины.
+     */
+    public void compareSizeMethod() {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        fillCollection(arrayList);
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        fillCollection(linkedList);
+
+        startTimeUpdate();
+        arrayList.size();
+        long endTime = System.currentTimeMillis();
+        long resultAl = endTime - startTime;
+
+        startTimeUpdate();
+        linkedList.size();
+        endTime = System.currentTimeMillis();
+
+        showResult(resultAl, endTime - startTime, "size()");
+    }
 }

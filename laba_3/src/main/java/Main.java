@@ -5,5 +5,7 @@ public class Main {
         comparison.compareDeleteBeginMethod();
         comparison.compareGetEndMethod();
         comparison.compareGetMidMethod();
+        comparison.compareReplaceAllMethod();
+        comparison.compareSizeMethod();
     }
 }
