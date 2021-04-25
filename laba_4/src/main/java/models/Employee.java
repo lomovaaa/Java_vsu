@@ -15,7 +15,7 @@ public class Employee {
     /**
      * Пол
      */
-    private String sex;
+    private String gender;
     /**
      * Подразделение
      */
@@ -45,12 +45,12 @@ public class Employee {
         name = value;
     }
 
-    public String getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(String value) {
-        sex = value;
+    public void setGender(String value) {
+        gender = value;
     }
 
     public Department getDepartment() {
