@@ -13,6 +13,11 @@ public class Department {
      */
     private String name;
 
+    public Department(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }

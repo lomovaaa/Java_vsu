@@ -1,5 +1,8 @@
 package models;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Класс, описывающий сущность сотрудник.
  */
@@ -27,7 +30,16 @@ public class Employee {
     /**
      * Дата рождения
      */
-    private String birthDate;
+    private Date birthDate;
+
+    public Employee(String[] data, Department departmentEmp) throws Exception {
+        id = Integer.parseInt(data[0]);
+        name = data[1];
+        gender = data[2];
+        birthDate = new SimpleDateFormat("dd.MM.yyyy").parse(data[3]);
+        department = departmentEmp;
+        salary = Double.parseDouble(data[5]);
+    }
 
     public int getId() {
         return id;
@@ -69,11 +81,11 @@ public class Employee {
         salary = value;
     }
 
-    public String getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String value) {
+    public void setBirthDate(Date value) {
         birthDate = value;
     }
 
