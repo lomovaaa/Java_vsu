@@ -8,6 +8,5 @@ public class Main {
     public static void main(String[] args) throws Exception {
         ArrayList<Employee> list = new ArrayList<Employee>();
         list = ListOfEmployees.createList("foreign_names.csv", ';');
-        System.out.println(list);
     }
 }

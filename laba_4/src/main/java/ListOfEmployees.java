@@ -29,6 +29,7 @@ public class ListOfEmployees {
 
     /**
      * Создает нового сотрудника по указанным данным, полученным из файла.
+     *
      * @param departments список подразделений
      * @param departmentId id подразделения
      * @param data данные, полученные из файла
@@ -42,6 +43,7 @@ public class ListOfEmployees {
 
     /**
      * Формирует из данных файла список сотрудников и возвращает его.
+     *
      * @param fileName имя файла
      * @param separator разделитель
      * @return список сотрудников
